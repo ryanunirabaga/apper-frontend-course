@@ -5,13 +5,16 @@ import { useState, useMemo } from 'react';
 import { ColorModeContextProvider } from '../Contexts/ColorMode';
 import { AuthenticationContextProvider } from '../Contexts/authentication';
 import { DrawerAppBar } from './navBar';
+import { GetFilesProvider } from '../Contexts/firebaseStorage';
 
 function MyApp({ Component, pageProps }) {
 
   return (
       <ColorModeContextProvider>
         <AuthenticationContextProvider>
-        <Component {...pageProps} />
+          <GetFilesProvider>
+          <Component {...pageProps} />
+          </GetFilesProvider>
         </AuthenticationContextProvider>
       </ColorModeContextProvider>
   );

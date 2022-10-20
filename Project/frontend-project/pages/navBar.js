@@ -62,7 +62,9 @@ export function DrawerAppBar(props) {
     const route = navItems.filter(item=> item.name === buttonName);
     router.push(route[0].route);
   }
-
+  useEffect(()=>{
+    {DrawerRouterPush}
+  },[])
 
   useEffect(()=>{
     {RouterPush}
