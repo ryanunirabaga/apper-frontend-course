@@ -23,7 +23,8 @@ export default function Home() {
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          justifyContent: 'space-around'
+          justifyContent: 'space-around',
+          pt: 2
         }}>
           <Grid item lg={4} md={12} sm={12} xs={12}
             sx={{
