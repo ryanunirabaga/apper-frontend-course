@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, CardActionArea } from "@mui/material";
 import React, { useContext } from "react";
 import CssBaseline from '@mui/material/CssBaseline';
 import { DrawerAppBar } from "./navBar";
@@ -15,6 +15,7 @@ export default function BrowseNovels() {
 
         return (
             <Grid item lg={4} md={12} sm={12} sx={12}>
+            <CardActionArea>
             <Box
                 sx={{
                     display:'flex',
@@ -29,7 +30,7 @@ export default function BrowseNovels() {
                     {title}
                 </Typography>
             </Box>
-
+            </CardActionArea>
         </Grid>
         )
     }

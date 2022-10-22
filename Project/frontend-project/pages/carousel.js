@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel'
-import { Paper, Button, Typography } from '@mui/material'
+import { Paper, Button, Typography, CardActionArea } from '@mui/material'
 import Box from '@mui/material/Box';
 import { useContext } from 'react';
 import { firebaseStorageContext } from '../Contexts/firebaseStorage';
@@ -32,12 +32,13 @@ function Item(props)
 {
     const bgImg = `./NovelCovers/${props.item}.webp`;
     return (
+        <CardActionArea>
         <Box sx={{
             display:'flex',
             alignItems: 'Center',
             justifyContent: 'center',
             flexDirection: 'column',
-            pt: 3
+            py: 2
           }}>
             <img src={bgImg} height='400px'/>
             <Typography variant='h6' mt={2}>
@@ -48,5 +49,6 @@ function Item(props)
                 Check it out!
             </Button> */}
         </Box>
+        </CardActionArea>
     )
 }
