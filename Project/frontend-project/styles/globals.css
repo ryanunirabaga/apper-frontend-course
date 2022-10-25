@@ -16,7 +16,6 @@ a {
 } */
 
 .readNovelsLogo {
-  width: 130px;
   filter: invert(100%);
 }
 @media (prefers-color-scheme: dark) {

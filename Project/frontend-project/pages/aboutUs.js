@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import React from "react";
 import CssBaseline from '@mui/material/CssBaseline';
-import { DrawerAppBar } from "./navBar";
+import { DrawerAppBar } from "../src/navBar";
 
 export default function AboutUs() {
 

@@ -1,15 +1,16 @@
-import * as React from 'react';
+import react from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Typography from '@mui/material/Typography';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthenticationContext } from '../Contexts/authentication';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 function Copyright(props) {
   return (
@@ -26,9 +27,17 @@ function Copyright(props) {
 
 /* const theme = createTheme(); */
 
-export default function SignInSide() {
+export default function SignIn() {
 
-  const anonymousSignIn = useContext(AuthenticationContext);
+  const { anonymousSignIn, isLoggedIn, setIsLoggedIn, route } = useContext(AuthenticationContext);
+  const router = useRouter();
+
+  useEffect(()=>{
+    if(isLoggedIn)
+      router.push(route);
+    else
+      setIsLoggedIn(false);
+  })
   
 
   return (
@@ -79,7 +88,7 @@ export default function SignInSide() {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-              <img src='./Read Novels.svg' alt='ReadJPNovels' width='100%' height='auto'/>
+              <Image className='readNovelsLogo' src='/Read Novels.svg' width={134} height={67} alt='ReadJPNovels Logo'/>
               </Box>
               <Copyright sx={{ mt: 2 }} />
             </Box>

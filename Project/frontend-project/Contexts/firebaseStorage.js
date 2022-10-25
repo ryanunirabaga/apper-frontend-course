@@ -59,14 +59,14 @@ export function GetFilesProvider (props) {
       },[]);
       
     // Check array if correct
-    useEffect(()=>{
-    console.log(fileArray)
-    },[fileArray])
+    // useEffect(()=>{
+    // console.log(fileArray)
+    // },[fileArray])
 
     // Check array if correct
-    useEffect(()=>{
-        console.log(folderArray)
-        },[folderArray])
+    // useEffect(()=>{
+    //     console.log(folderArray)
+    //     },[folderArray])
 
     return (
     <firebaseStorageContext.Provider value={{fileArray, folderArray}}>

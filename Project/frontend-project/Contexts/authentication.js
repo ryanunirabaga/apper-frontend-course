@@ -1,6 +1,7 @@
-import { getAuth, signInAnonymously, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInAnonymously, onAuthStateChanged } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { createContext, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 // Firebase Config
 const firebaseConfig = {
@@ -17,36 +18,47 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const firebaseAuth = getAuth(firebaseApp);
 
-export const anonymousSignIn = () => {
-    signInAnonymously(firebaseAuth)
-  .then(() => {
-    // Signed in..
-    onAuthStateChanged(firebaseAuth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
-        // console.log(user);
-        // ...
-      } else {
-        // User is signed out
-        // ...
-      }
-    });
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(`${errorCode}: ${errorMessage}`)
-  });
-}
 
 export const AuthenticationContext = createContext();
 
 export function AuthenticationContextProvider (props) {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [route, setRoute] = useState('/')
+  const router = useRouter();
+
+  const logRoute = () => {
+    setRoute(router.asPath);
+  }
+
+  const anonymousSignIn = () => {
+    signInAnonymously(firebaseAuth)
+    .then(() => {
+      // Signed in..
+      setIsLoggedIn(true);
+      router.push(route);
+    })
+    .catch((error) => {
+      setIsLoggedIn(false);
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(`${errorCode}: ${errorMessage}`)
+    });
+  }
+
+  useEffect(()=>{
+    onAuthStateChanged(firebaseAuth, (user) => {
+      if (user) {
+          setIsLoggedIn(true);
+          // console.log(user);
+      } else {
+          setIsLoggedIn(false);
+      }
+    });
+  },[isLoggedIn])
   
   return (
-      <AuthenticationContext.Provider value={anonymousSignIn}>
+      <AuthenticationContext.Provider value={{ anonymousSignIn, isLoggedIn, setIsLoggedIn, logRoute, route }}>
           {props.children}
       </AuthenticationContext.Provider>
   )

@@ -1,25 +1,17 @@
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { ColorModeContext } from '../Contexts/ColorMode';
-import { useTheme } from '@mui/material/styles';
-import Tooltip from '@mui/material/Tooltip';
-import { useContext } from 'react';
+import 
+  { AppBar, Box, Button, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Tooltip, Typography } 
+  from '@mui/material';
+
 import Brightness5Icon from '@mui/icons-material/Brightness5';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import MenuIcon from '@mui/icons-material/Menu';
+
+import { useState, useContext } from 'react';
+import { useTheme } from '@mui/material/styles';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
+import { ColorModeContext } from '../Contexts/ColorMode';
 
 
 const drawerWidth = 240;
@@ -62,17 +54,11 @@ export function DrawerAppBar(props) {
     const route = navItems.filter(item=> item.name === buttonName);
     router.push(route[0].route);
   }
-  useEffect(()=>{
-    {DrawerRouterPush}
-  },[])
 
-  useEffect(()=>{
-    {RouterPush}
-  },[])
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <img className='readNovelsLogo' src='./Read Novels.svg'/>
+      <Image className='readNovelsLogo' src='/Read Novels.svg' width={134} height={67} alt='ReadJPNovels Logo'/>
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -99,7 +85,7 @@ export function DrawerAppBar(props) {
       <AppBar component="nav" position='static' elevation={0} /* sx={{backgroundColor: 'rgba(181, 179, 179, 0.2)'}} */>
         <Toolbar>
           <Box sx={{ display: { xs: 'none', sm: 'block', sm: 'flex' }, mr: 1 }}>
-          <img className='readNovelsLogo' src='./Read Novels.svg'/>
+          <Image className='readNovelsLogo' src='/Read Novels.svg' width={134} height={67} alt='ReadJPNovels Logo'/>
           </Box>
           <IconButton
             color="inherit"

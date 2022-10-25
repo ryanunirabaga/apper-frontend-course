@@ -1,6 +1,4 @@
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import { Grid, Box } from '@mui/material';
+import { Grid, Box, Typography } from '@mui/material';
 import ContentPasteSearchIcon from '@mui/icons-material/ContentPasteSearch';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import DevicesIcon from '@mui/icons-material/Devices';
@@ -39,7 +37,7 @@ export function BrowseCard() {
                     mb: 1
                 }}
             >
-            Check if it's avaiable on us!
+            {`Check if it's avaiable on us!`}
             </Typography>
 
         </Box>
