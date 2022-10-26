@@ -21,6 +21,25 @@ export function ColorModeContextProvider(props) {
         createTheme({
           palette: {
             mode,
+            // ...(mode === 'dark'
+            // ? {
+            //     // palette values for dark mode
+            //     primary: {
+            //       main: '#232323',
+            //     },
+            //     background: {
+            //       default: '#272727',
+            //     },
+            //   }
+            // : {
+            //     // palette values for light mode
+            //     primary: {
+            //       main: '#dadada',
+            //     },
+            //     background: {
+            //       default: '#E6E6E6',
+            //     },
+            //   }),
           },
         }),
       [mode],
