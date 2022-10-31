@@ -52,23 +52,18 @@ export default function SignIn() {
           sx={{
             backgroundImage: 'url(./loginBackground.png)',
             backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper}>
-          <Box
+          <Box className='flex-item-center login-grid'
             sx={{
-              display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
               height: '100%'
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ m: 2, color: '#00d9ff' }}>
               <AccountCircleIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
@@ -76,6 +71,7 @@ export default function SignIn() {
             </Typography>
             <Box>
               <Button
+                color='warning'
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}

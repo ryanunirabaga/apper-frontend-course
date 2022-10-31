@@ -29,32 +29,16 @@ export default function BrowseNovels() {
         }
 
         return (
-            <Grid item lg={4} md={12} sm={12} xs={12}
+            <Grid item lg={4} md={12} sm={12} xs={12} className='flex-item-center'>
+            <Box className="flex-item-center"
                 sx={{
-                    display:'flex',
-                    alignItems: 'Center',
-                    justifyContent: 'center',
-                }}
-            >
-            <Box
-                sx={{
-                    display:'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
                     mt:2,
                     mb:3
                 }}
             >
                 <Card>
                     <CardActionArea onClick={routeTo}>
-                        <Box
-                            sx={{
-                                display:'block',
-                                width: '400px',
-                            }}
-
-                            data-key={title}
-                        >
+                        <Box className="novel-card-block" data-key={title}>
                             <Image
                                 src={imgLocation}
                                 alt={title}
@@ -63,13 +47,7 @@ export default function BrowseNovels() {
                                 layout='responsive'
                             />
                             <CardContent>
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                }}
-                            >
+                            <Box className="flex-item-center">
                                 <Typography variant='p' fontSize={16}>
                                     {title}
                                 </Typography>

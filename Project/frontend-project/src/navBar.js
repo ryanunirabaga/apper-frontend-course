@@ -2,17 +2,11 @@ import
   { AppBar, Box, Button, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Tooltip, Typography } 
   from '@mui/material';
 
-import Brightness5Icon from '@mui/icons-material/Brightness5';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import { useState, useContext } from 'react';
-import { useTheme } from '@mui/material/styles';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-
-import { ColorModeContext } from '../Contexts/ColorMode';
-
 
 const drawerWidth = 240;
 const navItems = [
@@ -36,10 +30,6 @@ export function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const theme = useTheme();
-  const { toggleColorMode } = useContext(ColorModeContext);
-  const colorModeToolTip = (theme.palette.mode === 'dark') ? 'light' : 'dark';
-
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -57,7 +47,7 @@ export function DrawerAppBar(props) {
 
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', height:'100%' }}  className='navbar-drawer'>
       <Image className='readNovelsLogo' src='/Read Novels.svg' width={134} height={67} alt='ReadJPNovels Logo'/>
       <Divider />
       <List>
@@ -68,12 +58,7 @@ export function DrawerAppBar(props) {
             </ListItemButton>
           </ListItem>
         ))}
-          <IconButton sx={{ ml: 1 }} onClick={toggleColorMode} color="inherit">
-            <Typography>
-              {colorModeToolTip} mode &nbsp;
-            </Typography>
-            {theme.palette.mode === 'dark' ? <Brightness5Icon /> : <DarkModeIcon />}
-          </IconButton>
+
       </List>
     </Box>
   );
@@ -82,7 +67,7 @@ export function DrawerAppBar(props) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar component="nav" position='static' elevation={0} /* sx={{backgroundColor: 'rgba(181, 179, 179, 0.2)'}} */>
+      <AppBar component="nav" position='static' className='navbar'>
         <Toolbar>
           <Box sx={{ display: { xs: 'none', sm: 'block', sm: 'flex' }, mr: 1 }}>
           <Image className='readNovelsLogo' src='/Read Novels.svg' width={134} height={67} alt='ReadJPNovels Logo'/>
@@ -96,24 +81,12 @@ export function DrawerAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-           {/* 読んだ Novels */}
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Box sx={{ display: { xs: 'none', sm: 'block' }, ml: 'auto' }}>
             {navItems.map((item) => (
               <Button key={item.name} sx={{ color: 'inherit' }} onClick={RouterPush} route={item.route}>
                 {item.name}
               </Button>
             ))}
-            <Tooltip title={`switch to ${colorModeToolTip} mode`} arrow>
-              <IconButton sx={{ ml: 1 }} onClick={toggleColorMode} color="inherit">
-                {theme.palette.mode === 'dark' ? <Brightness5Icon /> : <DarkModeIcon />}
-              </IconButton>
-            </Tooltip>
           </Box>
         </Toolbar>
       </AppBar>

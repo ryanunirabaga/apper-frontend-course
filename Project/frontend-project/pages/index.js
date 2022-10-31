@@ -16,37 +16,12 @@ export default function Home() {
 
   return (
     <>
-        <CssBaseline />
+        <CssBaseline enableColorScheme/>
         <DrawerAppBar/>
-        <Grid container sx={{
-          minHeight: '500px',
-          backgroundImage: 'url(./Homepage1.png)',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          justifyContent: 'space-around',
-          pt: 2
-        }}>
-          <Grid item lg={4} md={12} sm={12} xs={12}
-            sx={{
-              display:'flex',
-              alignItems: 'Center',
-              justifyContent: 'center',
-            }}
-          >
-            <Box
-              sx={{
-                display:'flex',
-                alignItems: 'Center',
-                justifyContent: 'center',
-                p: 2
-              }}
-            >
-              <Typography variant='h4'
-                sx={{
-                  textAlign: 'center',
-                }}
-              >
+        <Grid container className='grid-1'>
+          <Grid item lg={4} md={12} sm={12} xs={12} className='flex-item-center'>
+            <Box className='flex-item-center' p={2}>
+              <Typography variant='h4' textAlign='center'>
                 Check out our latest releases!
               </Typography>
             </Box>
@@ -57,11 +32,7 @@ export default function Home() {
               <LatestNovels/>
           </Grid>
         </Grid>
-        <Grid container justifyContent={'space-around'}
-        sx={{
-          backgroundColor: '#6e6e6e',
-          minHeight: '400px',
-        }}>
+        <Grid container className='home-card'>
             <BrowseCard/>
             <DownloadCard/>
             <EnjoyCard/>

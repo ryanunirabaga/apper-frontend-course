@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 // Firebase Config
-const firebaseConfig = {
+/* const firebaseConfig = {
     apiKey: "AIzaSyCxVsw7WZaubFR6hOUA50cNzHBwQrkTbKs",
     authDomain: "react-frontend-project-12e3a.firebaseapp.com",
     projectId: "react-frontend-project-12e3a",
@@ -12,6 +12,16 @@ const firebaseConfig = {
     messagingSenderId: "817616624541",
     appId: "1:817616624541:web:ee5d288701fcd169482d74",
     measurementId: "G-0WZD7B14WN"
+  }; */
+
+const firebaseConfig = {
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.FIREBASE_APP_ID,
+    measurementId: process.env.FIREBASE_MEASUREMENT_ID,
   };
 
   // Initialize Firebase

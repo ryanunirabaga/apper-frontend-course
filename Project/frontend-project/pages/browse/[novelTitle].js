@@ -32,8 +32,8 @@ function NovelDetails() {
                 const novelVol = fileArray.filter((item) => item.fileName === novelVolumeNo)[0];
                 return (
                     <div key={index}>
-                        <Link href={novelVol.downloadURL} target='_blank'>
-                            <Typography variant="p" fontSize={13}>{novelVol.fileName}</Typography>
+                        <Link href={novelVol.downloadURL} target='_blank' className='download-link'>
+                            <Typography variant="p" fontSize={13} >{novelVol.fileName}</Typography>
                         </Link>
                     </div>
                 );
@@ -44,7 +44,7 @@ function NovelDetails() {
     function SignInToDownload() {
         if(!isLoggedIn)
             return (
-                <Button onClick={redirectToSignIn}>
+                <Button onClick={redirectToSignIn} color='warning' variant='contained'>
                     Sign In to show download links
                 </Button>
             )
@@ -56,27 +56,16 @@ function NovelDetails() {
             <CssBaseline/>
             <DrawerAppBar/>
             <Container maxWidth='lg' sx={{my: 3}}>
-                <Card>
+                <Card className="card">
                 <Typography variant="h4" textAlign='center' my={2} px={2}>
                     {novelTitle}
                 </Typography>
                 <Divider/>
                 <Grid container justifyContent='space-around'>
                     <Grid item lg={4} md={4} sm={12} xs={12} my={2}>
-                        <Box
-                            sx={{
-                                display:'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            }}
-                        >
+                        <Box className="flex-item-center">
                             <Card>
-                                <Box
-                                sx={{
-                                    display: 'block',
-                                    width: '300px'
-                                }}
-                                >
+                                <Box className="description-card-block">
                                     <Image
                                         src={imgLocation}
                                         alt={novelTitle}
@@ -99,7 +88,6 @@ function NovelDetails() {
                                 sm: 'center',
                                 xs: 'center',
                             },
-                            /* justifyContent: 'space-around', */
                             px: 5
                         }}
                         >

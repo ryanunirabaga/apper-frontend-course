@@ -8,7 +8,7 @@ export function Footer() {
 
     return (
         <Grid container sx={{
-            backgroundColor: '#3d3d3d'
+            backgroundColor: '#3d3d3d',
           }}>
             <Grid item lg={6} md={12} sm={12} xs={12}>
               <Box
@@ -16,28 +16,24 @@ export function Footer() {
                   display:'flex',
                   alignItems: 'Center',
                   justifyContent: 'center',
-                  p: 2
+                  p: 1
                 }}
               >
-                  <Typography variant='h6'>
+                  <Typography variant='p'>
                     Follow us on: &nbsp;
                   </Typography>
-                  <FacebookIcon sx={{fontSize: '40px',}}/>
-                  <InstagramIcon sx={{fontSize: '40px'}}/>
-                  <TwitterIcon sx={{fontSize: '40px'}}/>
+                  <FacebookIcon sx={{fontSize: '30px',}}/>
+                  <InstagramIcon sx={{fontSize: '30px',}}/>
+                  <TwitterIcon sx={{fontSize: '30px',}}/>
               </Box>
             </Grid>
             <Grid item lg={6} md={12} sm={12} xs={12}>
-              <Box
+              <Box className='flex-item-center'
                 sx={{
-                  display:'flex',
-                  alignItems: 'Center',
-                  justifyContent: 'center',
-                  height: '100%',
-                  p: 2
+                  height: '100%', p: 1
                 }}
               >
-                  <Typography variant='h6'>
+                  <Typography variant='p'>
                     Copyright © ReadJPNovels.com
                   </Typography>
               </Box>

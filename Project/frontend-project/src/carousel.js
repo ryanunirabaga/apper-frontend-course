@@ -40,25 +40,10 @@ function Item(props) {
     }
     
     return (
-        <Box
-            sx={{
-                display:'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                mt:2
-            }}
-        >
+        <Box className='flex-item-center' mt={2}>
             <Card sx={{backgroundColor: 'transparent', mb: 1}}>
                 <CardActionArea onClick={routeTo}>
-                <Box
-                    sx={{
-                        display:'block',
-                        flexDirection:'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        width: '300px',
-                    }}
-                >
+                <Box className='description-card-block'>
                     <Image
                         src={imgLocation}
                         alt={props.item}
@@ -67,13 +52,7 @@ function Item(props) {
                         layout='responsive'
                     />
                     <CardContent>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            }}
-                        >
+                        <Box className='flex-item-center'>
                             <Typography variant='p'>
                                 {props.item}
                             </Typography>
